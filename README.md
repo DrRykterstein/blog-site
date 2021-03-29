@@ -6,7 +6,7 @@ This is a simple, statically generated demo site which further enhanced my React
 integrated getStaticProps and getStaticPaths functions.
 
 ## Launch 
-This project will be launched using Vercel, the proprietary NextJS hosting platform.
+This project was launched using Vercel at https://tech-blog.vercel.app
 
 ## Getting Started
 

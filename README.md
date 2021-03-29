@@ -8,8 +8,6 @@ integrated getStaticProps and getStaticPaths functions.
 ## Launch 
 This project will be launched using Vercel, the proprietary NextJS hosting platform.
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
 ## Getting Started
 
 First, run the development server:

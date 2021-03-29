@@ -1,0 +1,31 @@
+$cardBackgroundColor: rgba(218, 218, 218, 0.356);
+
+.card {
+  cursor: pointer;
+  padding: .5rem;
+}
+
+.card:hover {
+  background-color: $cardBackgroundColor;
+}
+
+.image {
+  min-width: 100%;
+  border-radius: 3px;
+}
+
+.textContainer {
+  padding-left: 1rem;
+}
+
+@media only screen and (max-width: 960px) {
+  .card {
+    display: flex;
+  }
+}
+
+@media only screen and (max-width: 568px) {
+  .card {
+    display: block;
+  }
+}

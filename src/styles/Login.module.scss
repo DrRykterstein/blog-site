@@ -1,0 +1,35 @@
+$formBackground: #eeeeee;
+$crossBackground: #cfcfcf;
+
+.form {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  z-index: 2;
+  background-color: $formBackground;
+  text-align: center;
+  padding: 1rem;
+  width: 500px;
+  border-radius: 5px;
+}
+
+.cross {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  border-radius: 25px;
+}
+
+.cross:hover {
+  background-color: $crossBackground;
+}
+
+@media only screen and (max-width: 668px) {
+  .form {
+    width: 80%;
+  }
+}

@@ -1,0 +1,32 @@
+$text: #f0f0f0;
+$overlayBackgroundColor: rgba(0, 0, 0, 0.46);
+
+.card {
+  margin-bottom: 2rem;
+}
+
+.imageContainer {
+  position: relative;
+}
+
+.image {
+  height: 300px;
+}
+
+.overlay {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: $overlayBackgroundColor;
+  padding: 10%;
+}
+
+.overlay > * {
+  color: $text;
+}

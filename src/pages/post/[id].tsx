@@ -10,10 +10,6 @@ const post = ({ post, otherPosts }) => {
   const { Meta, Banner, PostContent } = Components;
   const { title, excerpt, date } = post;
 
-  // Alternative method for obtaining the post id client side
-  // const router = useRouter();
-  // const { id } = router.query;
-
   return (
     <React.Fragment>
       <Meta 
@@ -24,11 +20,11 @@ const post = ({ post, otherPosts }) => {
         <Banner post={post} />
           <Text color="textSecondary" variant="subtitle2">{date}</Text>
         <Grid container spacing={3}>
-          <PostContent 
+          {/* <PostContent 
             post={post} 
             otherPosts={otherPosts}
             postStyles={postStyles} 
-          />
+          /> */}
         </Grid>
       </div>
     </React.Fragment>
@@ -38,23 +34,22 @@ const post = ({ post, otherPosts }) => {
 // Fetch data 
 export const getStaticProps = async (context: any) => {
   const res = await fetch(`
-    ${server}/api/posts/${context.params.id}
+    https://jsonplaceholder.typicode.com/posts/${context.params.id}
   `);
-  const postData = await res.json();
+  const post = await res.json();
 
   // Extract matching post as well as the other posts from data
-  let { post, otherPosts } = postData;
+  // let { post, otherPosts } = postData;
 
   return {
     props: {
-      post,
-      otherPosts
+      post
     }
   };
 }
 
 export const getStaticPaths = async () => {
-  const res = await fetch(`${server}/api/posts`);
+  const res = await fetch(`https://jsonplaceholder.typicode.com/posts`);
   const posts = await res.json();
 
   // Get post id's and store each id within our paths
@@ -68,5 +63,38 @@ export const getStaticPaths = async () => {
     fallback: false
   };
 }
+
+// export const getStaticProps = async (context: any) => {
+//   const res = await fetch(`
+//     ${server}/api/posts/${context.params.id}
+//   `);
+//   const postData = await res.json();
+
+//   // Extract matching post as well as the other posts from data
+//   let { post, otherPosts } = postData;
+
+//   return {
+//     props: {
+//       post,
+//       otherPosts
+//     }
+//   };
+// }
+
+// export const getStaticPaths = async () => {
+//   const res = await fetch(`${server}/api/posts`);
+//   const posts = await res.json();
+
+//   // Get post id's and store each id within our paths
+//   const idList = posts.map((post: any) => post.id);
+//   const paths = idList.map((id: number) => ({
+//     params: { id: id.toString() }
+//   }));
+
+//   return {
+//     paths,
+//     fallback: false
+//   };
+// }
 
 export default post;

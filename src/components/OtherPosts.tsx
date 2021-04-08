@@ -7,9 +7,9 @@ import postStyles from "../styles/OtherPosts.module.scss";
 interface OtherPost {
   id: number;
   title: string;
-  excerpt: string;
+  excerpt?: string;
   body: string;
-  date: string;
+  date?: string;
 }
 
 interface Props {

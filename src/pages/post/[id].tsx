@@ -8,6 +8,7 @@ import postStyles from "../../styles/post.module.scss";
 const post = ({ post, otherPosts }) => {
   const { container } = postStyles;
   const { Meta, Banner, PostContent } = Components;
+  const { title, excerpt, date } = post;
 
   // Alternative method for obtaining the post id client side
   // const router = useRouter();
@@ -16,12 +17,12 @@ const post = ({ post, otherPosts }) => {
   return (
     <React.Fragment>
       <Meta 
-        title={post.title}
-        description={post.excerpt}
+        title={title}
+        description={excerpt}
       />
       <div className={container}>
         <Banner post={post} />
-          <Text color="textSecondary" variant="subtitle2">{post.date}</Text>
+          <Text color="textSecondary" variant="subtitle2">{date}</Text>
         <Grid container spacing={3}>
           <PostContent 
             post={post} 

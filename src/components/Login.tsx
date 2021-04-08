@@ -1,5 +1,4 @@
 import React, { useState, Dispatch, SetStateAction } from "react";
-import { loadFirebase } from "../lib/db";
 import Controls from "../controls/Controls";
 import loginStyles from "../styles/Login.module.scss";
 

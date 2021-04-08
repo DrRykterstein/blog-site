@@ -11,18 +11,19 @@ interface Props {
 }
 
 const FeaturedBlogItem: React.FC<Props> = ({ featuredPost }) => {
-  const { card, imageContainer, image, overlay } = featuredStyles;
+  const { card, imageContainer, featuredImage, overlay } = featuredStyles;
+  const { id, title, excerpt, image } = featuredPost;
   const screenSize = useContext(ScreenSizeContext);
   const { screenWidth } = screenSize;
 
   return (
     <Card className={card}>
       <div className={imageContainer}>
-        <CardMedia className={image} image={featuredPost.image}></CardMedia>
-        <Link href={`post/${featuredPost.id}`}>
+        <CardMedia className={featuredImage} image={image}></CardMedia>
+        <Link href={`post/${id}`}>
           <div className={overlay}>
-            <Text variant={screenWidth < 769 ? "h4" : "h3"}>{featuredPost.title}</Text>
-            <Text variant={screenWidth < 769 ? "body1" : "h6"}>{featuredPost.excerpt}</Text>
+            <Text variant={screenWidth < 769 ? "h4" : "h3"}>{title}</Text>
+            <Text variant={screenWidth < 769 ? "body1" : "h6"}>{excerpt}</Text>
             <Text variant={screenWidth < 769 ? "caption" : "body1"}>Continue Reading...</Text>
           </div>
         </Link>

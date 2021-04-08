@@ -3,7 +3,7 @@ import { Post } from "../data";
 import Link from "next/link";
 import Image from "next/image";
 import { Card } from "@material-ui/core";
-import Text from "../controls/Text";
+import Controls from "../controls/Controls";
 import blogItemStyles from "../styles/BlogItem.module.scss";
 
 interface Props {
@@ -16,6 +16,7 @@ const BlogItem: React.FC<Props> = ({ post }) => {
     image, 
     textContainer 
   } = blogItemStyles;
+  const { Text } = Controls;
 
   return (
     <Link href={`post/${post.id}`}>

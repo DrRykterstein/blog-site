@@ -34,7 +34,7 @@ const Nav: React.FC = () => {
           size="large"
           onClick={() => setDisplayForm(true)}
         >
-          <p className={login}>Sign in</p>
+          <p className={login}>Demo Sign In</p>
         </Button>
       </Toolbar>
         {

@@ -19,13 +19,14 @@ interface Props {
 const PostContent: React.FC<Props> = ({ post, otherPosts, postStyles }) => {
   const { lining, linkHome } = postStyles;
   const { OtherPosts } = Components;
+  const { title, body } = post;
 
   return (
     <React.Fragment>
       <Grid item md={8}>
-        <Text>{post.title}</Text>
+        <Text>{title}</Text>
         <div className={lining} />
-        <Text variant="body1">{post.body}</Text>
+        <Text variant="body1">{body}</Text>
         <Link href="/"><a className={linkHome}>Go back</a></Link>
       </Grid>
       <Grid item md={4}>

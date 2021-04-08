@@ -21,12 +21,12 @@ const BlogItem: React.FC<Props> = ({ post }) => {
   return (
     <Link href={`post/${post.id}`}>
       <Card className={card} variant="elevation">
-        {/* <Image 
+        <Image 
           className={image}
           src={post.image} 
           height={200}
           width={488}
-        /> */}
+        />
         <div className={textContainer}>
           <Text>{post.title} &#10140;</Text>
           <Text variant="body1">{post.excerpt}</Text>

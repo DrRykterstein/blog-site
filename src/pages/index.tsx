@@ -1,5 +1,5 @@
 import React from "react";
-import { fetchPosts } from "../api/fetchPostData";
+import { posts } from "../data";
 import { Grid } from "@material-ui/core";
 import ScreenSizeProvider from "../contexts/screenSizeContext";
 import Components from "../components/Components";
@@ -25,25 +25,12 @@ export default function Home({ posts }) {
   );
 }
 
-// Fetch API data at build time
-export const getStaticProps = async () => {
-  const posts = await fetchPosts();
-
+// Fetch all posts
+export const getServerSideProps = async () => {
   return {
     props: {
       posts
     }
   };
 }
-
-// export const getStaticProps = async () => {
-//   const res = await fetch(`https://jsonplaceholder.typicode.com/posts?_limit=6`);
-//   const posts = await res.json();
-
-//   return {
-//     props: {
-//       posts
-//     }
-//   };
-// }
 

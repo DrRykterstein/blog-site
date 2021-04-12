@@ -25,9 +25,9 @@ const Layout: React.FC = ({ children }) => {
 
 // Set default values for Meta component props
 const metaData = {
-  title: "Web Dev Blog",
-  keywords: "web development, programming",
-  description: "Get the latest news in web dev"
+  title: "Technology Blog",
+  keywords: "technology, machine learning, programming",
+  description: "Get the latest news in the world of tech"
 };
 
 export default Layout;

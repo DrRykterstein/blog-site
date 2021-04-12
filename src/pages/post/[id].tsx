@@ -1,5 +1,5 @@
 import React from "react";
-import { posts } from "../../data";
+import { posts, Post } from "../../data";
 import { Grid } from "@material-ui/core";
 import Components from "../../components/Components";
 import Text from "../../controls/Text";
@@ -32,7 +32,7 @@ const post = ({ post, otherPosts }) => {
 }
 
 // Fetch current post and other posts
-export const getServerSideProps = ({ params: { id } }) => {
+export const getStaticProps = ({ params: { id } }) => {
   let post = [], otherPosts = [];
 
   // Delineate between the current post and other posts
@@ -44,6 +44,19 @@ export const getServerSideProps = ({ params: { id } }) => {
       otherPosts
     }
   }
+}
+
+export const getStaticPaths = () => {
+  // Get post id's and store each id within our paths
+  const idList = posts.map((post: Post) => post.id);
+  const paths = idList.map(id => ({
+    params: { id: id.toString() }
+  }));
+
+  return {
+    paths,
+    fallback: false
+  };
 }
 
 // export const getStaticProps = async (context: any) => {

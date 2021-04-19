@@ -59,6 +59,7 @@ const Login: React.FC<Props> = ({ formDisplay }) => {
         initialValues[value] = "";
       });
       setValues(initialValues);
+      return window.location.href = "/"; // Redirect user to homescreen
     }
   }
 

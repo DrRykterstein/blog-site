@@ -8,5 +8,11 @@ CREATE TABLE Posts (
   posts_date DATE
 );
 
+INSERT INTO Posts (title, excerpt)
+VALUES (
+    "Advanced Machine Learning Algorithm",
+    "Learn about the underlying complexities behind machine learning models..."
+  );
+
 -- Down
 DROP TABLE Posts;

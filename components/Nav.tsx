@@ -40,9 +40,7 @@ const Nav: React.FC = () => {
         {
           displayForm && 
           <div className={formContainer}>
-            <Login 
-                formDisplay={{ displayForm, setDisplayForm }} 
-            />
+            <Login formDisplay={{ displayForm, setDisplayForm }} />
           </div>
         }
     </React.Fragment>

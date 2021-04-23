@@ -1,11 +1,16 @@
 import React from "react";
-import { posts } from "../data";
+import { db } from "../utils/queryDatabase";
+import { Post } from "../Post/Post";
 import { Grid } from "@material-ui/core";
 import ScreenSizeProvider from "../contexts/screenSizeContext";
 import Components from "../components/Components";
 import homeStyles from "../styles/Home.module.scss";
 
-export default function Home({ posts }) {
+interface IndexProps {
+  posts: Array<Post>;
+}
+
+export default function Home({ posts }: IndexProps) {
   const { BlogItem, FeaturedBlogItem } = Components;
   const splicedPosts = [...posts].splice(1); // Remove first post
 
@@ -27,6 +32,8 @@ export default function Home({ posts }) {
 
 // Fetch all posts
 export const getStaticProps = async () => {
+  const posts = await db.getAll();
+
   return {
     props: {
       posts

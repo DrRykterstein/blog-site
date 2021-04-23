@@ -1,14 +1,16 @@
-import { posts } from "../../../data";
+import { db } from "../../../utils/queryDatabase";
+import { Post } from "../../../Post/Post";
 
-function handler({ query: { id } }, res: any) {
+async function handler({ query: { id } }, res: any) {
   // Determine the post with matching id and store the rest as other posts
-  let otherPosts = [], post = [];
+  const posts = await db.getAll();
+  let otherPosts = [], post: Post;
 
-  posts.forEach(p => p.id === id ? post.push(p) : otherPosts.push(p));
+  posts.forEach((p: Post) => p.id === id ? post = p : otherPosts.push(p));
  
   // Send response based on whether post with requested id was found
-  if (post.length > 0) {
-    res.status(200).json({ post: post[0], otherPosts });
+  if (post) {
+    res.status(200).json({ post, otherPosts });
   } else {
     res.status(404).json({ 
       message: `Article with id ${id} was not found.`

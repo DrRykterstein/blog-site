@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { Grid } from "@material-ui/core";
-import { Post } from "../data";
+import { Post } from "../Post/Post";
 import Components from "./Components";
 import Text from "../controls/Text";
 

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Post } from "../data";
+import { Post } from "../Post/Post";
 import { Card, CardMedia } from "@material-ui/core";
 import Text from "../controls/Text";
 import bannerStyles from "../styles/Banner.module.scss";
@@ -22,7 +22,7 @@ const Banner: React.FC<Props> = ({ post }) => {
   return (
     <Card className={card}>
       <div className={imageContainer}>
-        <CardMedia className={image} image={post.image}></CardMedia>
+        <CardMedia className={image} image={post._image}></CardMedia>
         <div className={overlay}>
           <Text 
             variant={screenWidth < 768 ? "h4" : "h3"} 

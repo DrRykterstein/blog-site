@@ -22,7 +22,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-, "src/pages/post/[id]/main.js", "src/next.config.tsx"  ],
+, "src/pages/post/[id]/main.js", "src/next.config.tsx", "dbTest.js"  ],
   "exclude": [
     "node_modules"
   ]

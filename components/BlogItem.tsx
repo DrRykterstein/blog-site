@@ -1,5 +1,5 @@
 import React from "react";
-import { Post } from "../data";
+import { Post } from "../Post/Post";
 import Link from "next/link";
 import Image from "next/image";
 import { Card } from "@material-ui/core";
@@ -23,7 +23,7 @@ const BlogItem: React.FC<Props> = ({ post }) => {
       <Card className={card} variant="elevation">
         <Image 
           className={image}
-          src={post.image} 
+          src={post._image}
           height={200}
           width={488}
         />

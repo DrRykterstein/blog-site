@@ -4,35 +4,45 @@ $text: #fafafa;
 $formContainerBackground: #000000a8;
 
 .nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: $background-color;
-  padding: 1rem;
-  color: $text;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: $background-color;
+	padding: 1rem;
+	color: $text;
 }
 
 .nav > * {
-  color: white;
+	color: white;
 }
 
 .title {
-  font-size: 32px;
-  cursor: pointer;
-  width: 300px;
+	font-size: 32px;
+	cursor: pointer;
+	width: 300px;
 }
 
 .title:hover {
-  text-decoration: underline;
+	text-decoration: underline;
 }
 
 .formContainer {
-  position: absolute;
-  transform: translate(-50%, -50%);
-  top: 50%;
-  left: 50%;
-  min-height: 210vh;
-  width: 100%;
-  background-color: $formContainerBackground;
-  z-index: 1;
+	position: absolute;
+	transform: translate(-50%, -50%);
+	top: 50%;
+	left: 50%;
+	min-height: 210vh;
+	width: 100%;
+	background-color: $formContainerBackground;
+	z-index: 1;
+}
+
+@media only screen and (max-width: 468px) {
+	.nav {
+		flex-direction: column;
+	}
+
+	.title {
+		margin-bottom: 1rem;
+	}
 }

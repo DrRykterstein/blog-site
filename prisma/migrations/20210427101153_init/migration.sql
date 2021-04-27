@@ -1,14 +1,15 @@
--- Up
-CREATE TABLE Posts (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  title TEXT,
-  excerpt TEXT,
-  body TEXT,
-  _image TEXT,
-  _date DATE
+-- CreateTable
+CREATE TABLE "Post" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "title" TEXT NOT NULL,
+    "excerpt" TEXT NOT NULL,
+    "body" TEXT NOT NULL,
+    "image" TEXT NOT NULL,
+    "date" TEXT NOT NULL
 );
 
-INSERT INTO Posts (title, excerpt, body, _image, _date)
+-- InsertValues
+INSERT INTO Post ("title", "excerpt", "body", "image", "date")
 VALUES (
     "How Companies use Machine Learning",
     "Machine learning is headed for a major growth spurt. After ticking past the $1billion mark in...",
@@ -53,4 +54,4 @@ VALUES (
   );
 
 -- Down
-DROP TABLE Posts;
+-- DROP TABLE Posts;

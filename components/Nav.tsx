@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import { useScreenSize } from "../contexts/screenSizeContext";
 import { Toolbar, Button } from "@material-ui/core";
 import Components from "../components/Components";
 import navStyles from "../styles/Nav.module.scss";
@@ -7,6 +8,7 @@ import navStyles from "../styles/Nav.module.scss";
 const Nav: React.FC = () => {
 	const { nav, title, login, formContainer } = navStyles;
 	const { Login } = Components;
+	const { screenWidth } = useScreenSize();
 
 	// Toggle state to display or close form
 	const [displayForm, setDisplayForm] = useState(false);
@@ -29,12 +31,12 @@ const Nav: React.FC = () => {
 		<React.Fragment>
 			<Toolbar className={nav}>
 				<Link href="/">
-					<h1 className={title}>Tech Blog</h1>
+					<h1 className={title}>Technology Blog</h1>
 				</Link>
 				<Button
 					variant="contained"
 					color="primary"
-					size="large"
+					size={screenWidth <= 568 ? "medium" : "large"}
 					onClick={() => setDisplayForm(true)}
 				>
 					<p className={login}>Sign In</p>

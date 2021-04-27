@@ -2,7 +2,7 @@ import React from "react";
 import { db } from "../utils/queryDatabase";
 import { Post } from "../models/Post";
 import { Grid } from "@material-ui/core";
-import ScreenSizeProvider from "../contexts/screenSizeContext";
+import { ScreenSizeProvider } from "../contexts/screenSizeContext";
 import Components from "../components/Components";
 import homeStyles from "../styles/Home.module.scss";
 

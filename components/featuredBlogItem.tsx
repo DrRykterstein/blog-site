@@ -1,8 +1,8 @@
-import React, { useContext } from "react";
+import React from "react";
 import Link from "next/link";
 import { Card, CardMedia } from "@material-ui/core";
 import { Post } from "../models/Post";
-import { ScreenSizeContext } from "../contexts/screenSizeContext";
+import { useScreenSize } from "../contexts/screenSizeContext";
 import Text from "../controls/Text";
 import featuredStyles from "../styles/FeaturedBlogItem.module.scss";
 
@@ -13,8 +13,7 @@ interface Props {
 const FeaturedBlogItem: React.FC<Props> = ({ featuredPost }) => {
 	const { card, imageContainer, featuredImage, overlay } = featuredStyles;
 	const { id, title, excerpt, image } = featuredPost;
-	const screenSize = useContext(ScreenSizeContext);
-	const { screenWidth } = screenSize;
+	const { screenWidth } = useScreenSize();
 
 	return (
 		<Card className={card}>

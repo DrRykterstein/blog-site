@@ -1,34 +1,29 @@
-import { useEffect, useState, createContext, Dispatch, SetStateAction } from "react";
+import { useEffect, useState, createContext, useContext } from "react";
 
-// Define alias for setState/dispatcher type
-type screenSizeDispatcher<S> = Dispatch<SetStateAction<S>>;
-
-export type ScreenSizeContext = {
-  screenWidth: number;
-  setScreenWidth: screenSizeDispatcher<number>;
+export type ScreenSizeModel = {
+	screenWidth: number;
 };
 
-export const ScreenSizeContext = createContext<ScreenSizeContext>({
-  screenWidth: null,
-  setScreenWidth: (): void => {}
+const ScreenSizeContext = createContext<ScreenSizeModel>({
+	screenWidth: null,
 });
 
-const ScreenSizeProvider: React.FC = ({ children }) => {
-  const [screenWidth, setScreenWidth] = useState<number>(null);
+export const ScreenSizeProvider: React.FC = ({ children }) => {
+	const [screenWidth, setScreenWidth] = useState<number>(null);
 
-  // Listen for screen size change and set new screen width
-  useEffect(() => {
-    setScreenWidth(window.innerWidth);
-    window.addEventListener('resize', () => {
-      setScreenWidth(window.innerWidth);
-    });
-  });
+	// Listen for screen size change and set new screen width
+	useEffect(() => {
+		setScreenWidth(window.innerWidth);
+		window.addEventListener("resize", () => {
+			setScreenWidth(window.innerWidth);
+		});
+	});
 
-  return (
-    <ScreenSizeContext.Provider value={{ screenWidth, setScreenWidth }}>
-      {children}
-    </ScreenSizeContext.Provider>
-  );
-}
+	return (
+		<ScreenSizeContext.Provider value={{ screenWidth }}>
+			{children}
+		</ScreenSizeContext.Provider>
+	);
+};
 
-export default ScreenSizeProvider;
+export const useScreenSize = () => useContext(ScreenSizeContext);
